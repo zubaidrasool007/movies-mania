@@ -14,14 +14,10 @@ export function MovieDetail() {
         return response.json()
       }).then(value => {
         setMovies(value)
-        console.log(value)
-        
+        console.log(value) 
       })
-  
     },[id])
     console.log('id',id)
-  
-   
     return (
         <Box sx={{ display: 'flex',justifyContent:'center',marginTop:4,}}>
 

@@ -24,6 +24,7 @@ export function MoviesPage() {
       <Grid container>
         {movies.map((data) =>
            <Grid item xs={3} p={1}  >
+           
             <Link className='link' to={`detail/${data.id}`}>
               <Card sx={{ height: "100%", width: '100%' }} >
                 <CardMedia

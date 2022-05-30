@@ -11,25 +11,14 @@ export function MainComponent() {
     return (
         <Box>
             <Navbar />
-
-
             <Container >
-                {/* <Box >
-                    <SerachData />
-                    <MoviesPage/>
-                </Box> */}
                 <Routes>
-                <Route path="/" element={  <MoviesPage/>} />
-                    {/* <Route path="detail" element={<MovieDetail />} /> */}
+                    <Route path="/" element={<MoviesPage />} />
                 </Routes>
-
             </Container>
             <Routes>
-            
-                    <Route path="detail/:id" element={<MovieDetail />} />
-                </Routes>
-
-
+                <Route path="detail/:id" element={<MovieDetail />} />
+            </Routes>
         </Box>
     )
 }

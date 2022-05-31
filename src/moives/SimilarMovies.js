@@ -25,7 +25,7 @@ export function SimilarMovies() {
             <Grid container sx={{ flexWrap: 'nowrap', overflowX: "scroll" }}>
                 {similarMovies.map((data) =>
                     <Grid item p={1} >
-                        <Link className='link' to={`detail/${data.id}`}>
+                        <Link className='link' to={`/detail/${data.id}`}>
                             <Card sx={{ height: "100%", width: '200px' }}>
                                 <CardMedia
                                     component="img"

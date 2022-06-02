@@ -1,3 +1,12 @@
+# Movie Rating App
+
+By using react framework and React Material UI created this app. In this app the front page show the top rated movies the clicke on moveies open the a detail page and reviews and rating. In the detail also show a similar movies.The click on similar any similar movie that show the detail obout movie. In this app pepople can search his favourite movies.
+
+# Stack
+
+- React App
+- React Material UI
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

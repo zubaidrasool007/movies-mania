@@ -1,6 +1,6 @@
 # Movies Mania
 
-By using React.js and React Material UI created this app. In this app the front page show the top rated movies the click on a movie opens the detail page with its reviews and ratings. In the detail also mention some similar movies. The click on any similar movie that show the detail about movie. In this app pepople can search his favourite movies with its ratings and reviews.
+By using React.js and React Material UI created this app. In this app the front page show the top rated movies the click on a movie opens the detail page with its reviews and ratings. In the detail also mention some similar movies. The click on any similar movie that show the detail about movie. In this app people can search his favorite movies with its ratings and reviews.
 
 # Stack
 

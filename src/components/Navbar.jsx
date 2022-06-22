@@ -64,7 +64,7 @@ export default function Navbar() {
                   aria-controls={open ? "demo-positioned-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
-                  onMouseOver={handleClick}
+                  // onMouseOver={handleClick}
                 >
                   Movies
                 </Button>
@@ -88,7 +88,7 @@ export default function Navbar() {
                   aria-controls={open ? "demo-positioned-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
-                  onMouseOver={handleClick}
+                  // onMouseOver={handleClick}
                 >
                   TvShows
                 </Button>
@@ -112,7 +112,7 @@ export default function Navbar() {
                   aria-controls={open ? "demo-positioned-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
-                  onMouseOver={handleClick}
+                  // onMouseOver={handleClick}
                 >
                   People
                 </Button>
@@ -136,7 +136,7 @@ export default function Navbar() {
                   aria-controls={open ? "demo-positioned-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
-                  onMouseOver={handleClick}
+                  // onMouseOver={handleClick}
                 >
                   More
                 </Button>

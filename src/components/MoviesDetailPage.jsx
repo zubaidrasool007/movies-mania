@@ -18,7 +18,6 @@ export default function MoviesDetailPage() {
   console.log("detail", data);
 
   if (isLoading) return "loading";
-
   return (
     <Box sx={{ marginTop: 4 }}>
       <Card
@@ -30,29 +29,28 @@ export default function MoviesDetailPage() {
           backgroundImage: `url(https://www.themoviedb.org/t/p/original/${data.backdrop_path})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          position:'relative',
+          position: "relative",
           zIndex: "1",
         }}
       >
-        
         <CardMedia
           component="img"
-          sx={{ width: 300, height: "500px", borderRadius: "10px" , backgroundSize: "cover",}}
-          image={
-            `https://www.themoviedb.org/t/p/original/${data.backdrop_path}`
-          }
+          sx={{
+            width: 300,
+            height: "500px",
+            borderRadius: "10px",
+            backgroundSize: "cover",
+          }}
+          image={`https://www.themoviedb.org/t/p/original/${data.backdrop_path}`}
           alt="nature"
         />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <CardContent sx={{ flex: "1 0 auto", color:'#fff' }}>
-            <Typography sx={{mt:10}} component="div" variant="h4">
+          <CardContent sx={{ flex: "1 0 auto", color: "#fff" }}>
+            <Typography sx={{ mt: 10 }} component="div" variant="h4">
               {data.title} ({data.release_date})
             </Typography>
-            <Typography
-              variant="subtitle1"
-              component="div"
-            >
-              <Typography variant="h5" >Overview</Typography>
+            <Typography variant="subtitle1" component="div">
+              <Typography variant="h5">Overview</Typography>
               {data.overview}
             </Typography>
             <Typography
@@ -60,7 +58,7 @@ export default function MoviesDetailPage() {
               color="text.secondary"
               component="div"
             >
-              <Rating  name="read-only" value={data.vote_average /2 } readOnly />
+              <Rating name="read-only" value={data.vote_average / 2} readOnly />
             </Typography>
           </CardContent>
           <Box
@@ -79,12 +77,10 @@ export default function MoviesDetailPage() {
             zIndex: "-1",
           }}
         ></Box>
-    
       </Card>
       <MoviesCast />
       <MoviesReviewsPage />
       <SimilarMoviesPage />
-      
     </Box>
   );
 }

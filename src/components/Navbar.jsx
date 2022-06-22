@@ -1,15 +1,22 @@
 import React from "react";
-import { Box, AppBar, Toolbar, Button, Typography, Link ,Menu,MenuItem} from "@mui/material";
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  Button,
+  Typography,
+  Link,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import "./Movies.css";
 import SearchBar from "./SearchBar";
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [cindex,setIndex]=React.useState(0);
-  const open = Boolean(anchorEl) && cindex ;
-  const handleClick =(index)=> (event) => {
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-    setIndex(index)
   };
   const handleClose = () => {
     setAnchorEl(null);
@@ -52,137 +59,101 @@ export default function Navbar() {
                 }}
               >
                 <Button
-                 sx={{ fontWeight: "600", color: "#fff", color: "#fff" }}
-                  id="demo-positioned-button"
-                  aria-controls={open ? "demo-positioned-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onMouseOver={handleClick}
-                >
-                  Movies
-                </Button>
-                <Menu
-                  id="demo-positioned-menu"
-                  aria-labelledby="demo-positioned-button"
-                  anchorEl={anchorEl}
-                  open={open}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                >
-                
-                </Menu>
-                <Button
-                 sx={{ fontWeight: "600", color: "#fff", color: "#fff" }}
-                  id="demo-positioned-button"
-                  aria-controls={open ? "demo-positioned-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onMouseOver={handleClick}
-                >
-                      TvShows
-                </Button>
-                <Menu
-                  id="demo-positioned-menu"
-                  aria-labelledby="demo-positioned-button"
-                  anchorEl={anchorEl}
-                  open={open}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                >
-              
-                </Menu>
-                <Button
-                 sx={{ fontWeight: "600", color: "#fff", color: "#fff" }}
-                  id="demo-positioned-button"
-                  aria-controls={open ? "demo-positioned-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onMouseOver={handleClick}
-                >
-                    People
-                </Button>
-                <Menu
-                  id="demo-positioned-menu"
-                  aria-labelledby="demo-positioned-button"
-                  anchorEl={anchorEl}
-                  open={open}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                >
-              
-                </Menu>
-                <Button
-                 sx={{ fontWeight: "600", color: "#fff", color: "#fff" }}
-                  id="demo-positioned-button"
-                  aria-controls={open ? "demo-positioned-menu" : undefined}
-                  aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
-                  onMouseOver={handleClick}
-                >
-                   More
-                </Button>
-                <Menu
-                  id="demo-positioned-menu"
-                  aria-labelledby="demo-positioned-button"
-                  anchorEl={anchorEl}
-                  open={open}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                >
-                </Menu>
-
-                {/* <Link
-                  href="#"
-                  underline="none"
                   sx={{ fontWeight: "600", color: "#fff", color: "#fff" }}
+                  id="demo-positioned-button"
+                  aria-controls={open ? "demo-positioned-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onMouseOver={handleClick}
                 >
                   Movies
-                </Link>
-                <Link
-                  href="#"
-                  underline="none"
-                  sx={{ fontWeight: "600", color: "#fff" }}
+                </Button>
+                <Menu
+                  id="demo-positioned-menu"
+                  aria-labelledby="demo-positioned-button"
+                  anchorEl={anchorEl}
+                  open={open}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                ></Menu>
+                <Button
+                  sx={{ fontWeight: "600", color: "#fff", color: "#fff" }}
+                  id="demo-positioned-button"
+                  aria-controls={open ? "demo-positioned-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onMouseOver={handleClick}
                 >
                   TvShows
-                </Link>
-                <Link
-                  href="#"
-                  underline="none"
-                  sx={{ fontWeight: "600", color: "#fff" }}
+                </Button>
+                <Menu
+                  id="demo-positioned-menu"
+                  aria-labelledby="demo-positioned-button"
+                  anchorEl={anchorEl}
+                  open={open}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                ></Menu>
+                <Button
+                  sx={{ fontWeight: "600", color: "#fff", color: "#fff" }}
+                  id="demo-positioned-button"
+                  aria-controls={open ? "demo-positioned-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onMouseOver={handleClick}
                 >
                   People
-                </Link>
-                <Link
-                  href="#"
-                  underline="none"
-                  sx={{ fontWeight: "600", color: "#fff" }}
+                </Button>
+                <Menu
+                  id="demo-positioned-menu"
+                  aria-labelledby="demo-positioned-button"
+                  anchorEl={anchorEl}
+                  open={open}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                ></Menu>
+                <Button
+                  sx={{ fontWeight: "600", color: "#fff", color: "#fff" }}
+                  id="demo-positioned-button"
+                  aria-controls={open ? "demo-positioned-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onMouseOver={handleClick}
                 >
                   More
-                </Link> */}
+                </Button>
+                <Menu
+                  id="demo-positioned-menu"
+                  aria-labelledby="demo-positioned-button"
+                  anchorEl={anchorEl}
+                  open={open}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                ></Menu>
               </Box>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center" }}>

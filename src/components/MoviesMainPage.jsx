@@ -27,9 +27,9 @@ export default function MoviesMainPage() {
         <MoviesSearchData />
         <h1>Movies</h1>
         <Grid container>
-          {data.results.map((moviesCast) => (
+          {data.results.map((mainMovies) => (
             <Grid item xs={3} p={1}>
-              <Link className="link" to={`detail/${moviesCast.id}`}>
+              <Link className="link" to={`detail/${mainMovies.id}`}>
                 <Card sx={{ height: "100%", width: "100%" }}>
                   <CardMedia
                     component="img"
@@ -37,15 +37,15 @@ export default function MoviesMainPage() {
                     height="340"
                     image={
                       "https://www.themoviedb.org/t/p/original/" +
-                      moviesCast.backdrop_path
+                      mainMovies.backdrop_path
                     }
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                      {moviesCast.title}
+                      {mainMovies.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      {moviesCast.release_date}
+                      {mainMovies.release_date}
                     </Typography>
                     <Typography
                       variant="subtitle1"
@@ -54,7 +54,7 @@ export default function MoviesMainPage() {
                     >
                       <Rating
                         name="read-only"
-                        value={moviesCast.vote_average / 2}
+                        value={mainMovies.vote_average / 2}
                         readOnly
                       />
                     </Typography>

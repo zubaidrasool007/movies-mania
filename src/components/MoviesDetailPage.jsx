@@ -60,7 +60,7 @@ export default function MoviesDetailPage() {
               color="text.secondary"
               component="div"
             >
-              <Rating name="read-only" value={data.vote_average / 2} readOnly />
+              <Rating  name="read-only" value={data.vote_average /2 } readOnly />
             </Typography>
           </CardContent>
           <Box

@@ -22,9 +22,9 @@ export default function MoviesCast() {
       <Box>
         <h1>Top Billed Cast</h1>
         <Grid container sx={{ flexWrap: "nowrap", overflowX: "scroll" }}>
-          {data.cast.map((data) => (
+          {data.cast.map((moviesCast) => (
             <Grid item p={1}>
-              <Link className="link" to={`/detail/${data.id}`}>
+              <Link className="link" to={`/detail/${moviesCast.id}`}>
                 <Card sx={{ height: "100%", width: "200px" }}>
                   <CardMedia
                     component="img"
@@ -32,15 +32,15 @@ export default function MoviesCast() {
                     height="190"
                     image={
                       "https://www.themoviedb.org/t/p/original/" +
-                      data.profile_path
+                      moviesCast.profile_path
                     }
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                      {data.name}
+                      {moviesCast.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      {data.character}
+                      {moviesCast.character}
                     </Typography>
                   </CardContent>
                 </Card>

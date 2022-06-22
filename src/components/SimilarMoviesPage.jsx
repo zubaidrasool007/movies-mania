@@ -21,25 +21,22 @@ export default function SimilarMoviesPage() {
     <Container>
       <h1>Similar Movies</h1>
       <Grid container sx={{ flexWrap: "nowrap", overflowX: "scroll" }}>
-        {data.results.map((data) => (
+        {data.results.map((similarMovies) => (
           <Grid item p={1}>
-            <Link className="link" to={`/detail/${data.id}`}>
+            <Link className="link" to={`/detail/${similarMovies.id}`}>
               <Card sx={{ height: "100%", width: "200px" }}>
                 <CardMedia
                   component="img"
                   alt="green iguana"
                   height="190"
-                  image={
-                    "https://www.themoviedb.org/t/p/original/" +
-                    data.backdrop_path
-                  }
+                  image={`https://www.themoviedb.org/t/p/original/${similarMovies.backdrop_path}`}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    {data.title}
+                    {similarMovies.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {data.release_date}
+                    {similarMovies.release_date}
                   </Typography>
                 </CardContent>
               </Card>

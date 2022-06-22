@@ -37,9 +37,9 @@ export default function MoviesDetailPage() {
         
         <CardMedia
           component="img"
-          sx={{ width: 300, height: "500px", borderRadius: "10px"  }}
+          sx={{ width: 300, height: "500px", borderRadius: "10px" , backgroundSize: "cover",}}
           image={
-            "https://www.themoviedb.org/t/p/original/" + data.backdrop_path
+            `https://www.themoviedb.org/t/p/original/${data.backdrop_path}`
           }
           alt="nature"
         />

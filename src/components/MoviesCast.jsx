@@ -30,10 +30,7 @@ export default function MoviesCast() {
                     component="img"
                     alt="green iguana"
                     height="190"
-                    image={
-                      "https://www.themoviedb.org/t/p/original/" +
-                      moviesCast.profile_path
-                    }
+                    image={`https://www.themoviedb.org/t/p/original/${moviesCast.profile_path}`}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">

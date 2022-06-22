@@ -6,6 +6,7 @@ import {
   ListItem,
   ListItemButton,
   Button,
+  Typography,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import "./Movies.css";
@@ -27,13 +28,13 @@ export default function Navbar() {
                     maxWidth: "100%",
                   }}
                 >
-                  <img src=" https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" />
-                  
+              <Typography variant="h6">Movies Mania</Typography>
+                
                 </Box>
-                <ListItemButton>Movies</ListItemButton>
-                <ListItemButton>TvShows</ListItemButton>
-                <ListItemButton>People</ListItemButton>
-                <ListItemButton>More</ListItemButton>
+                <ListItemButton sx={{fontWeight:'600'}}>Movies</ListItemButton>
+                <ListItemButton sx={{fontWeight:'600'}}>TvShows</ListItemButton>
+                <ListItemButton sx={{fontWeight:'600'}}>People</ListItemButton>
+                <ListItemButton sx={{fontWeight:'600'}}>More</ListItemButton>
               </ListItem>
             </Box>
             <Box sx={{display:'flex' , alignItems:'center'}}>

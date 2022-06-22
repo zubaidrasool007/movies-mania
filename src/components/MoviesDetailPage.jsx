@@ -81,10 +81,10 @@ export default function MoviesDetailPage() {
         ></Box>
     
       </Card>
-
       <MoviesCast />
-      <SimilarMoviesPage />
       <MoviesReviewsPage />
+      <SimilarMoviesPage />
+      
     </Box>
   );
 }

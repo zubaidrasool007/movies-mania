@@ -35,7 +35,10 @@ export default function MoviesMainPage() {
                     component="img"
                     alt="green iguana"
                     height="340"
-                    image={"https://www.themoviedb.org/t/p/original/"+moviesCast.backdrop_path}
+                    image={
+                      "https://www.themoviedb.org/t/p/original/" +
+                      moviesCast.backdrop_path
+                    }
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">

@@ -1,7 +1,14 @@
 import React from "react";
 import { useParams } from "react-router";
 import { useGetSimilarMoviesByNameQuery } from "../service/services";
-import { Box,Card,CardContent,CardMedia,Typography,Grid } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Grid,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import { Container } from "@mui/system";
 
@@ -22,7 +29,10 @@ export default function SimilarMoviesPage() {
                   component="img"
                   alt="green iguana"
                   height="190"
-                  image={"https://www.themoviedb.org/t/p/original/"+data.backdrop_path}
+                  image={
+                    "https://www.themoviedb.org/t/p/original/" +
+                    data.backdrop_path
+                  }
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
@@ -38,6 +48,5 @@ export default function SimilarMoviesPage() {
         ))}
       </Grid>
     </Container>
-    
   );
 }

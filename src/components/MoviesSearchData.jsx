@@ -18,10 +18,10 @@ export default function MoviesSearchData() {
       className="serchBox"
       sx={{
         background: `url('https://c4.wallpaperflare.com/wallpaper/365/431/599/movie-dracula-untold-wallpaper-preview.jpg')`,
-        backgroundRepeat:'no-repeat',
-        backgroundSize:'cover',
-        backgroundPositionY:'centers',
-        color:'#fff'
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPositionY: "centers",
+        color: "#fff",
       }}
     >
       <Box>
@@ -34,15 +34,15 @@ export default function MoviesSearchData() {
         <Autocomplete
           disablePortal
           id="combo-box-demo"
-          size='small'
-          sx={{ width:'100%',border:'none'}}
+          size="small"
+          sx={{ width: "100%", border: "none" }}
           disableClearable
-          options={data?.results ||[]}
+          options={data?.results || []}
           getOptionLabel={(v) => v.title}
           onChange={(event, value) => searchItem(value)}
           renderInput={(params) => (
             <TextField
-              sx={{backgroundColor:'white' ,}}
+              sx={{ backgroundColor: "white" }}
               {...params}
               label="Search input"
               type="search"

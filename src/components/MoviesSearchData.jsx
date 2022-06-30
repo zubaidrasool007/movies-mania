@@ -7,9 +7,10 @@ import { useState } from "react";
 export default function MoviesSearchData() {
   const navigation = useNavigate();
   const [input, setInput] = useState("a");
-  const { data, error, isLoading } = useGetSerchMoviesByNameQuery(input);
-  if (isLoading) return "loading";
-  // if (error) return "error";
+  const { data, isLoading } = useGetSerchMoviesByNameQuery(input);
+
+  if (isLoading) return "loading...";
+
   const searchItem = (data) => {
     navigation(`detail/${data.id}`);
   };

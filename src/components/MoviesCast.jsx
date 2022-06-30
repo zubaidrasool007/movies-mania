@@ -16,7 +16,7 @@ export default function MoviesCast() {
   const { id } = useParams();
   const { data, isLoading } = useGetMoviesCastByNameQuery(id);
   console.log("cast", data);
-  if (isLoading) return "loading";
+  if (isLoading) return "loading...";
   return (
     <Container>
       <Box>

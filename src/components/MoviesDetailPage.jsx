@@ -17,7 +17,7 @@ export default function MoviesDetailPage() {
   const { data, error, isLoading } = useGetMoviesDetailByNameQuery(id);
   console.log("detail", data);
 
-  if (isLoading) return "loading";
+  if (isLoading) return "loading...";
   return (
     <Box sx={{ marginTop: 4 }}>
       <Card

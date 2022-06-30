@@ -5,10 +5,9 @@ import { useParams } from "react-router-dom";
 import { Container } from "@mui/system";
 export default function MoviesReviewsPage() {
   const { id } = useParams();
-  const { data, error, isLoading } = useGetMoviesReviewsByNameQuery(id);
-  console.log("rev", data);
+  const { data, isLoading } = useGetMoviesReviewsByNameQuery(id);
 
-  if (isLoading) return "loading";
+  if (isLoading) return "loading...";
   return (
     <Container>
       <Box>

@@ -5,9 +5,7 @@ import {
   Toolbar,
   Button,
   Typography,
-  Link,
   Menu,
-  MenuItem,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import "./Movies.css";
@@ -15,12 +13,6 @@ import SearchBar from "./SearchBar";
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   return (
     <Box className="container">
@@ -59,12 +51,11 @@ export default function Navbar() {
                 }}
               >
                 <Button
-                  sx={{ fontWeight: "600", color: "#fff", color: "#fff" }}
+                  sx={{ fontWeight: "600", color: "#fff" }}
                   id="demo-positioned-button"
                   aria-controls={open ? "demo-positioned-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
-                  // onMouseOver={handleClick}
                 >
                   Movies
                 </Button>
@@ -83,12 +74,11 @@ export default function Navbar() {
                   }}
                 ></Menu>
                 <Button
-                  sx={{ fontWeight: "600", color: "#fff", color: "#fff" }}
+                  sx={{ fontWeight: "600", color: "#fff" }}
                   id="demo-positioned-button"
                   aria-controls={open ? "demo-positioned-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
-                  // onMouseOver={handleClick}
                 >
                   TvShows
                 </Button>
@@ -107,7 +97,7 @@ export default function Navbar() {
                   }}
                 ></Menu>
                 <Button
-                  sx={{ fontWeight: "600", color: "#fff", color: "#fff" }}
+                  sx={{ fontWeight: "600", color: "#fff" }}
                   id="demo-positioned-button"
                   aria-controls={open ? "demo-positioned-menu" : undefined}
                   aria-haspopup="true"
@@ -131,7 +121,7 @@ export default function Navbar() {
                   }}
                 ></Menu>
                 <Button
-                  sx={{ fontWeight: "600", color: "#fff", color: "#fff" }}
+                  sx={{ fontWeight: "600", color: "#fff" }}
                   id="demo-positioned-button"
                   aria-controls={open ? "demo-positioned-menu" : undefined}
                   aria-haspopup="true"

@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router";
 import { useGetSimilarMoviesByNameQuery } from "../service/services";
 import {
-  Box,
   Card,
   CardContent,
   CardMedia,
@@ -14,9 +13,9 @@ import { Container } from "@mui/system";
 
 export default function SimilarMoviesPage() {
   const { id } = useParams();
-  const { data, error, isLoading } = useGetSimilarMoviesByNameQuery(id);
+  const { data, isLoading } = useGetSimilarMoviesByNameQuery(id);
 
-  if (isLoading) return "loading";
+  if (isLoading) return "loading...";
   return (
     <Container>
       <h1>Similar Movies</h1>

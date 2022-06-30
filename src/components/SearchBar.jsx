@@ -8,7 +8,7 @@ export default function SearchBar() {
   const navigation = useNavigate();
   const [input, setInput] = useState("a");
   const { data, error, isLoading } = useGetSerchMoviesByNameQuery(input);
-  if (isLoading) return "loading";
+  if (isLoading) return "loading...";
   if (error) return "error";
   const searchItem = (data) => {
     navigation(`detail/${data.id}`);

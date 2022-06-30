@@ -11,8 +11,8 @@ import AddIcon from "@mui/icons-material/Add";
 import "./Movies.css";
 import SearchBar from "./SearchBar";
 export default function Navbar() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  // const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(null);
 
   return (
     <Box className="container">
@@ -126,7 +126,6 @@ export default function Navbar() {
                   aria-controls={open ? "demo-positioned-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
-                  // onMouseOver={handleClick}
                 >
                   More
                 </Button>

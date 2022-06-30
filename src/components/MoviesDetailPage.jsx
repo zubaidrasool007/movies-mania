@@ -14,8 +14,7 @@ import MoviesReviewsPage from "./MoviesReviewsPage";
 import MoviesCast from "./MoviesCast";
 export default function MoviesDetailPage() {
   const { id } = useParams();
-  const { data, error, isLoading } = useGetMoviesDetailByNameQuery(id);
-  console.log("detail", data);
+  const { data, isLoading } = useGetMoviesDetailByNameQuery(id);
 
   if (isLoading) return "loading...";
   return (

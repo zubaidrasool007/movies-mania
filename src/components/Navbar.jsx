@@ -4,14 +4,15 @@ import {
   AppBar,
   Toolbar,
   Button,
-  Typography,
   Menu,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import "./Movies.css";
 import SearchBar from "./SearchBar";
 export default function Navbar() {
   const [anchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const navigate = useNavigate();
 
   return (
     <Box className="container">
@@ -39,7 +40,7 @@ export default function Navbar() {
                   maxWidth: "100%",
                 }}
               >
-                <Typography variant="h6">Movies Maniya</Typography>
+                <Button sx={{ fontWeight: "600", color: "#fff" }} id="home-button" onClick={() => {navigate('')}}>Movies Maniya</Button>
               </Box>
               <Box
                 sx={{

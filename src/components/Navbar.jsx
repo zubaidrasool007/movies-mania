@@ -40,7 +40,7 @@ export default function Navbar() {
                   maxWidth: "100%",
                 }}
               >
-                <Typography variant="h6">Movies Mania</Typography>
+                <Typography variant="h6">Movies Maniya</Typography>
               </Box>
               <Box
                 sx={{
@@ -80,7 +80,7 @@ export default function Navbar() {
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
                 >
-                  TvShows
+                  Tv Shows
                 </Button>
                 <Menu
                   id="demo-positioned-menu"
@@ -146,11 +146,8 @@ export default function Navbar() {
               </Box>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Button color="inherit">
-                <AddIcon sx={{ fontSize: "30px" }} />
-              </Button>
               <Button color="inherit">Login</Button>
-              <Button color="inherit">JoinTMDB</Button>
+              <Button color="inherit">Join US</Button>
               {/* searchbar component */}
               <SearchBar />
             </Box>

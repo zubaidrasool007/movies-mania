@@ -11,8 +11,8 @@ import AddIcon from "@mui/icons-material/Add";
 import "./Movies.css";
 import SearchBar from "./SearchBar";
 export default function Navbar() {
-  // const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(null);
+  const [anchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
 
   return (
     <Box className="container">

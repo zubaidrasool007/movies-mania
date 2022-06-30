@@ -14,7 +14,7 @@ import { Container } from "@mui/system";
 
 export default function MoviesCast() {
   const { id } = useParams();
-  const { data, error, isLoading } = useGetMoviesCastByNameQuery(id);
+  const { data, isLoading } = useGetMoviesCastByNameQuery(id);
   console.log("cast", data);
   if (isLoading) return "loading";
   return (

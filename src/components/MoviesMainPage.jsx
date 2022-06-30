@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useGetTopRatedByNameQuery } from "../service/services";
 import {
   Box,
@@ -15,11 +15,9 @@ import { Link } from "react-router-dom";
 import MoviesSearchData from "./MoviesSearchData";
 
 export default function MoviesMainPage() {
-  const { data, error, isLoading } = useGetTopRatedByNameQuery();
+  const { data, isLoading } = useGetTopRatedByNameQuery();
 
-  console.log("main", data);
-
-  if (isLoading) return "loading";
+  if (isLoading) return "loading...";
 
   return (
     <Box>

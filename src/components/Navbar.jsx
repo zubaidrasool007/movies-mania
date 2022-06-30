@@ -7,7 +7,6 @@ import {
   Typography,
   Menu,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
 import "./Movies.css";
 import SearchBar from "./SearchBar";
 export default function Navbar() {

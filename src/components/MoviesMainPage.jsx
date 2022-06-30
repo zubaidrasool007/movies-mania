@@ -31,7 +31,7 @@ export default function MoviesMainPage() {
                 <Card sx={{ height: "100%", width: "100%" }}>
                   <CardMedia
                     component="img"
-                    alt="green iguana"
+                    alt={mainMovies.title}
                     height="340"
                     image={`https://www.themoviedb.org/t/p/original/${mainMovies.backdrop_path}`}
                   />

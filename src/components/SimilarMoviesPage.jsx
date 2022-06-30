@@ -26,7 +26,7 @@ export default function SimilarMoviesPage() {
               <Card sx={{ height: "100%", width: "200px" }}>
                 <CardMedia
                   component="img"
-                  alt="green iguana"
+                  alt={similarMovies.title}
                   height="190"
                   image={`https://www.themoviedb.org/t/p/original/${similarMovies.backdrop_path}`}
                 />

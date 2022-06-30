@@ -28,7 +28,7 @@ export default function MoviesCast() {
                 <Card sx={{ height: "100%", width: "200px" }}>
                   <CardMedia
                     component="img"
-                    alt="green iguana"
+                    alt={moviesCast.name}
                     height="190"
                     image={`https://www.themoviedb.org/t/p/original/${moviesCast.profile_path}`}
                   />

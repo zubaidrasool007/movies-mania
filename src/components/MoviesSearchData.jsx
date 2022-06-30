@@ -18,7 +18,7 @@ export default function MoviesSearchData() {
     <Box
       className="serchBox"
       sx={{
-        background: `url('https://c4.wallpaperflare.com/wallpaper/365/431/599/movie-dracula-untold-wallpaper-preview.jpg')`,
+        background: `url('https://culturalpolitics.net/index/sites/default/files/inline-images/Abm0wRq.jpg')`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPositionY: "centers",

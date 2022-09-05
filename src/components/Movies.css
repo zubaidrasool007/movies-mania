@@ -1,29 +1,24 @@
 .css-11b3ww9-MuiPaper-root-MuiAppBar-root {
-    position: unset !important;
+  position: unset !important;
 }
 
 #outlined-basic {
-    background-color: white;
+  background-color: white;
 }
 
 .MuiOutlinedInput-notchedOutline {
-    border-color: transparent !important;
-
-}
-
-.serchBox {
-    padding: 50px;
+  border-color: transparent !important;
 }
 
 .link {
-    text-decoration: none;
-}
-
-.css-12l054h-MuiFormControl-root-MuiTextField-root {
-    border-radius: 20px;
+  text-decoration: none;
 }
 
 .css-stc4iu-MuiToolbar-root {
-    height: 50px !important;
-    min-height: 60px !important;
+  height: 50px !important;
+  min-height: 60px !important;
+}
+.css-1r7kz78-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
+  background-color: #1f1f38;
+  color: #fff;
 }

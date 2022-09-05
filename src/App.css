@@ -1,0 +1,24 @@
+.css-11b3ww9-MuiPaper-root-MuiAppBar-root {
+  position: unset !important;
+}
+
+#outlined-basic {
+  background-color: white;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: transparent !important;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.css-stc4iu-MuiToolbar-root {
+  height: 50px !important;
+  min-height: 60px !important;
+}
+.css-1r7kz78-MuiModal-root-MuiDrawer-root .MuiDrawer-paper {
+  background-color: #1f1f38;
+  color: #fff;
+}

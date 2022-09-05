@@ -1,85 +1,148 @@
 import React from "react";
 import { useParams } from "react-router";
 import { useGetMoviesDetailByNameQuery } from "../service/services";
-import { Box } from "@mui/system";
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Rating,
-} from "@mui/material";
+
+import { Grid, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 import SimilarMoviesPage from "./SimilarMoviesPage";
 import MoviesReviewsPage from "./MoviesReviewsPage";
 import MoviesCast from "./MoviesCast";
 export default function MoviesDetailPage() {
   const { id } = useParams();
-  const { data, isLoading } = useGetMoviesDetailByNameQuery(id);
+  const { data, error, isLoading } = useGetMoviesDetailByNameQuery(id);
+  console.log("detail", data);
 
-  if (isLoading) return "loading...";
-  return (
-    <Box sx={{ marginTop: 4 }}>
-      <Card
-        sx={{
-          display: "flex",
-          pl: 10,
-          pt: 6,
-          pb: 6,
-          backgroundImage: `url(https://www.themoviedb.org/t/p/original/${data.backdrop_path})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          position: "relative",
-          zIndex: "1",
-        }}
+  if (isLoading)
+    return (
+      <Grid
+        container
+        alignItems={"center"}
+        height={"100vh"}
+        justifyContent={"center"}
       >
-        <CardMedia
-          component="img"
+        <CircularProgress />
+      </Grid>
+    );
+  if (error) return "something wrong";
+  return (
+    <Grid container sx={{ marginTop: 4 }}>
+      <Grid>
+        <Card
           sx={{
-            width: 300,
-            height: "500px",
-            borderRadius: "10px",
+            display: "flex",
+            pl: { xs: 4, sm: 10 },
+            py: { xs: 2, sm: 6 },
+            backgroundImage: `url(https://www.themoviedb.org/t/p/original/${data.backdrop_path})`,
             backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            position: "relative",
+            zIndex: "1",
           }}
-          image={`https://www.themoviedb.org/t/p/original/${data.backdrop_path}`}
-          alt="nature"
-        />
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <CardContent sx={{ flex: "1 0 auto", color: "#fff" }}>
-            <Typography sx={{ mt: 10 }} component="div" variant="h4">
-              {data.title} ({data.release_date})
-            </Typography>
-            <Typography variant="subtitle1" component="div">
-              <Typography variant="h5">Overview</Typography>
-              {data.overview}
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              color="text.secondary"
-              component="div"
-            >
-              <Rating name="read-only" value={data.vote_average / 2} readOnly />
-            </Typography>
-          </CardContent>
-          <Box
-            sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}
-          ></Box>
-        </Box>
-        <Box
-          sx={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            top: 0,
-            left: 0,
-            backgroundColor: "black",
-            opacity: "0.8",
-            zIndex: "-1",
-          }}
-        ></Box>
-      </Card>
+        >
+          <Grid
+            sx={{
+              display: "flex",
+              flexWrap: { xs: "wrap", sm: "unset" },
+              justifyContent: "center",
+            }}
+          >
+            <Grid xs={12} sm={6} md={3} sx={{ mr: 4, position: "relative" }}>
+              {isLoading ? (
+                <Grid
+                  container
+                  alignItems={"center"}
+                  height={"100vh"}
+                  justifyContent={"center"}
+                  position={"absolute"}
+                  zIndex={"11"}
+                >
+                  <CircularProgress />
+                </Grid>
+              ) : (
+                <CardMedia
+                  component="img"
+                  sx={{
+                    // width: 300,
+                    height: "500px",
+                    borderRadius: "10px",
+                    backgroundSize: "cover",
+                  }}
+                  image={`https://www.themoviedb.org/t/p/original/${data.backdrop_path}`}
+                  alt="nature"
+                />
+              )}
+            </Grid>
+            <Grid xs={12} sx={{ display: "flex", flexDirection: "column" }}>
+              <CardContent sx={{ flex: "1 0 auto", color: "#fff" }}>
+                <Typography sx={{ mt: 10 }} component="div" variant="h4">
+                  {data.title} ({data.release_date})
+                </Typography>
+                <Typography variant="subtitle1" component="div">
+                  <Typography variant="h5">Overview</Typography>
+                  {data.overview}
+                </Typography>
+                <Typography
+                  variant="subtitle1"
+                  color="text.secondary"
+                  component="div"
+                >
+                  <Grid sx={{ display: "flex", mt: 4 }}>
+                    <Typography
+                      variant="subtitle1"
+                      color="text.secondary"
+                      component="div"
+                      sx={{
+                        position: "relative",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <CircularProgress
+                        variant="determinate"
+                        sx={{ backgroundColor: "#0e2541", borderRadius: "50%" }}
+                        value={(data.vote_average * 100) / 10}
+                      />
+                      <Grid
+                        sx={{
+                          position: "absolute",
+                        }}
+                      >
+                        <Typography
+                          variant="caption"
+                          component="div"
+                          color="#fff"
+                        >
+                          {(data.vote_average * 100) / 10 + "%"}
+                        </Typography>
+                      </Grid>
+                    </Typography>
+                  </Grid>
+                </Typography>
+              </CardContent>
+            </Grid>
+            <Grid
+              sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}
+            ></Grid>
+          </Grid>
+
+          <Grid
+            sx={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              top: 0,
+              left: 0,
+              backgroundColor: "black",
+              opacity: "0.8",
+              zIndex: "-1",
+            }}
+          ></Grid>
+        </Card>
+      </Grid>
       <MoviesCast />
       <MoviesReviewsPage />
       <SimilarMoviesPage />
-    </Box>
+    </Grid>
   );
 }

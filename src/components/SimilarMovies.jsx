@@ -7,7 +7,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { Link } from "react-router-dom";
 import { Container } from "@mui/system";
 
-export default function SimilarMoviesPage() {
+export const SimilarMoviesPage = () => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetSimilarMoviesByNameQuery(id);
   const goToTop = () => {
@@ -86,4 +86,4 @@ export default function SimilarMoviesPage() {
       </Grid>
     </Container>
   );
-}
+};

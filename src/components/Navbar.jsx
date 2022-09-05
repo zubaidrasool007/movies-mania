@@ -17,14 +17,14 @@ import AddIcon from "@mui/icons-material/Add";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Movies.css";
-import SearchBar from "./SearchBar";
+import { SearchBar } from "./SearchBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { menuItems } from "../constants";
 
 const drawerWidth = 240;
 const navItems = ["Movies", "TvShows", "People", "More"];
-export default function Navbar(props) {
+export const Navbar = (props) => {
   const matches = useMediaQuery("(min-width: 900px)");
   const [isShow, setIsShow] = useState(true);
   const { window } = props;
@@ -231,4 +231,4 @@ export default function Navbar(props) {
       </Grid>
     </Grid>
   );
-}
+};

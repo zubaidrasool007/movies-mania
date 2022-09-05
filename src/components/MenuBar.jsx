@@ -1,4 +1,3 @@
-import React from "react";
 import { Menu, MenuItem } from "@mui/material";
 
 export const MenuBar = ({ id, anchorEl, onClose, items }) => {

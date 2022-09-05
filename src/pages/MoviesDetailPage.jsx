@@ -1,12 +1,19 @@
-import React from "react";
 import { useParams } from "react-router";
 import { useGetMoviesDetailByNameQuery } from "../service/services";
+import {
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  CircularProgress,
+} from "@mui/material";
+import {
+  MoviesCast,
+  SimilarMoviesPage,
+  MoviesReviewsPage,
+} from "../components";
 
-import { Grid, Card, CardContent, CardMedia, Typography } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
-import SimilarMoviesPage from "./SimilarMoviesPage";
-import MoviesReviewsPage from "./MoviesReviewsPage";
-import MoviesCast from "./MoviesCast";
 export default function MoviesDetailPage() {
   const { id } = useParams();
   const { data, error, isLoading } = useGetMoviesDetailByNameQuery(id);
@@ -35,6 +42,7 @@ export default function MoviesDetailPage() {
             backgroundImage: `url(https://www.themoviedb.org/t/p/original/${data.backdrop_path})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
             position: "relative",
             zIndex: "1",
           }}
@@ -46,7 +54,7 @@ export default function MoviesDetailPage() {
               justifyContent: "center",
             }}
           >
-            <Grid xs={12} sm={6} md={3} sx={{ mr: 4, position: "relative" }}>
+            <Grid xs={12} sm={5} md={3} sx={{ mr: 4, position: "relative" }}>
               {isLoading ? (
                 <Grid
                   container
@@ -62,7 +70,6 @@ export default function MoviesDetailPage() {
                 <CardMedia
                   component="img"
                   sx={{
-                    // width: 300,
                     height: "500px",
                     borderRadius: "10px",
                     backgroundSize: "cover",
@@ -72,7 +79,12 @@ export default function MoviesDetailPage() {
                 />
               )}
             </Grid>
-            <Grid xs={12} sx={{ display: "flex", flexDirection: "column" }}>
+            <Grid
+              xs={12}
+              sm={7}
+              md={9}
+              sx={{ display: "flex", flexDirection: "column" }}
+            >
               <CardContent sx={{ flex: "1 0 auto", color: "#fff" }}>
                 <Typography sx={{ mt: 10 }} component="div" variant="h4">
                   {data.title} ({data.release_date})
@@ -113,7 +125,7 @@ export default function MoviesDetailPage() {
                           component="div"
                           color="#fff"
                         >
-                          {(data.vote_average * 100) / 10 + "%"}
+                          {Math.round(data.vote_average * 100) / 10 + "%"}
                         </Typography>
                       </Grid>
                     </Typography>

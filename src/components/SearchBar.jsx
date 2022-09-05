@@ -1,11 +1,9 @@
-import React from "react";
 import { useNavigate } from "react-router";
 import { useGetSerchMoviesByNameQuery } from "../service/services";
-import { Grid, TextField, Autocomplete } from "@mui/material";
+import { Grid, TextField, Autocomplete, CircularProgress } from "@mui/material";
 import { useState } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
 
-export default function SearchBar() {
+export const SearchBar = () => {
   const navigation = useNavigate();
   const [input, setInput] = useState("a");
   const { data, error, isLoading } = useGetSerchMoviesByNameQuery(input);
@@ -46,4 +44,4 @@ export default function SearchBar() {
       />
     </Grid>
   );
-}
+};

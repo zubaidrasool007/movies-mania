@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { useGetTopRatedByNameQuery } from "../service/services";
 import {
   Box,
@@ -7,15 +6,13 @@ import {
   CardMedia,
   Typography,
   Grid,
-  Rating,
   Container,
+  CircularProgress,
 } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
-import "./Movies.css";
 import { Link } from "react-router-dom";
-import MoviesSearchData from "./MoviesHeader";
+import { Header } from "../components";
 
-export default function MoviesMainPage() {
+export default function Home() {
   const { data, error, isLoading } = useGetTopRatedByNameQuery();
 
   const goToTop = () => {
@@ -36,13 +33,13 @@ export default function MoviesMainPage() {
         <CircularProgress />
       </Grid>
     );
-  // if (isLoading) return "ffff";
+
   if (error) return "something wrong";
 
   return (
     <Grid>
       <Container>
-        <MoviesSearchData />
+        <Header />
         <h1>Movies</h1>
         <Grid container>
           {data.results.map((mainMovies) => (

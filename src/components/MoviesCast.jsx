@@ -1,11 +1,17 @@
-import React from "react";
-import { Card, CardContent, CardMedia, Typography, Grid } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Grid,
+  Container,
+  CircularProgress,
+} from "@mui/material";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useGetMoviesCastByNameQuery } from "../service/services";
-import { Container } from "@mui/system";
-import CircularProgress from "@mui/material/CircularProgress";
-export default function MoviesCast() {
+
+export const MoviesCast = () => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetMoviesCastByNameQuery(id);
   console.log("cast", data);
@@ -56,4 +62,4 @@ export default function MoviesCast() {
       </Grid>
     </Container>
   );
-}
+};

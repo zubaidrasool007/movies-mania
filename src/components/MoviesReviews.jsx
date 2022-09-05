@@ -1,10 +1,9 @@
-import React from "react";
 import { useGetMoviesReviewsByNameQuery } from "../service/services";
 import { Grid, Card, CardContent, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { Container } from "@mui/system";
 import CircularProgress from "@mui/material/CircularProgress";
-export default function MoviesReviewsPage() {
+export const MoviesReviewsPage = () => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetMoviesReviewsByNameQuery(id);
   console.log("rev", data);
@@ -43,4 +42,4 @@ export default function MoviesReviewsPage() {
       </Grid>
     </Container>
   );
-}
+};

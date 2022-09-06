@@ -12,7 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import { Header } from "../components";
 
-export default function Home() {
+export const Home = () => {
   const { data, error, isLoading } = useGetTopRatedByNameQuery();
 
   const goToTop = () => {
@@ -21,7 +21,6 @@ export default function Home() {
       behavior: "smooth",
     });
   };
-
   if (isLoading)
     return (
       <Grid
@@ -132,4 +131,4 @@ export default function Home() {
       </Container>
     </Grid>
   );
-}
+};

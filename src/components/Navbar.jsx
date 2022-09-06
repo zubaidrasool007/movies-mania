@@ -1,34 +1,26 @@
-import React from "react";
+import { useState } from "react";
 import {
   Grid,
-  AppBar,
-  Toolbar,
-  Button,
   Typography,
-  IconButton,
-  Menu,
   useMediaQuery,
-  Divider,
-  Drawer,
+  Button,
+  IconButton,
 } from "@mui/material";
-import { MenuBar } from "./MenuBar";
-
-import AddIcon from "@mui/icons-material/Add";
-import SearchIcon from "@mui/icons-material/Search";
-import CloseIcon from "@mui/icons-material/Close";
-import "./Movies.css";
-import { SearchBar } from "./SearchBar";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
+import { Drawer } from "../shared/Drawer";
+import { SearchBar } from "./SearchBar";
+import SearchIcon from "@mui/icons-material/Search";
 import { menuItems } from "../constants";
-
-const drawerWidth = 240;
+import { MenuBar } from "./MenuBar";
 const navItems = ["Movies", "TvShows", "People", "More"];
 export const Navbar = (props) => {
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const drawerMatches = useMediaQuery("(max-width: 600px)");
+
   const matches = useMediaQuery("(min-width: 900px)");
   const [isShow, setIsShow] = useState(true);
-  const { window } = props;
-  const [openDrawer, setOpenDrawer] = useState(false);
+
   const [anchorEl, setAnchorEl] = useState(null);
   const [items, setItems] = useState([]);
 
@@ -53,182 +45,194 @@ export const Navbar = (props) => {
   const handleDrawerToggle = () => {
     setOpenDrawer(!openDrawer);
   };
-  // set a Drawer
-  const drawerData = (
-    <Grid onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography sx={{ my: 2, fontWeight: "700", fontSize: "23px" }}>
-        Movies
-      </Typography>
-      <Divider />
-      <Grid
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-        }}
-        gap={4}
-      >
-        {navItems.map((item) => (
-          <Button
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#fff",
-              fontWeight: "700",
-              fontSize: "15px",
-              textAlign: "center",
-            }}
-          >
-            {item}
-          </Button>
-        ))}
-      </Grid>
-    </Grid>
-  );
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Grid className="container">
-      <AppBar component="nav">
-        <Toolbar sx={{ backgroundColor: "#0e2541" }}>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
+    <Grid>
+      <Grid
+        container
+        alignItems="center"
+        sx={{
+          backgroundColor: "#0e2541",
+          px: { xs: 2, md: 10 },
+          py: 1.5,
+          justifyContent: "space-between",
+        }}
+      >
+        <Grid item>
+          {drawerMatches && (
+            <Grid item>
+              <Drawer
+                open={openDrawer}
+                closeDrawer={() => setOpenDrawer(false)}
+              >
+                <Grid
+                  container
+                  item
+                  direction="column"
+                  xs={12}
+                  sx={{
+                    width: "265px",
+                    backgroundColor: "#0e2541",
+                  }}
+                >
+                  <Grid
+                    item
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      mt: 1,
+                    }}
+                  >
+                    {navItems.map((item) => (
+                      <Button
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#fff",
+                          fontWeight: "700",
+                          fontSize: "15px",
+                          textAlign: "center",
+                        }}
+                      >
+                        {item}
+                      </Button>
+                    ))}
+                  </Grid>
+                </Grid>
+              </Drawer>
 
-          <Grid
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-              width: "100%",
-            }}
-          >
-            {matches ? (
+              <Grid item>
+                <Grid item sx={{ display: { xs: "block", sm: "none" } }}>
+                  {openDrawer ? (
+                    <IconButton onClick={() => setOpenDrawer(false)}>
+                      <CloseIcon sx={{ color: "#fff" }} />
+                    </IconButton>
+                  ) : (
+                    <IconButton onClick={() => setOpenDrawer(true)}>
+                      <MenuIcon sx={{ color: "#fff" }} />
+                    </IconButton>
+                  )}
+                </Grid>
+              </Grid>
+            </Grid>
+          )}
+        </Grid>
+
+        <Grid
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            width: { sm: 0, md: "100%" },
+          }}
+        >
+          {matches ? (
+            <Grid
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <Grid
+                sx={{
+                  textDecoration: "none",
+                  width: "150px",
+                  maxWidth: "100%",
+                }}
+              >
+                <Typography variant="h6" color={"#fff"}>
+                  Movies Mania
+                </Typography>
+              </Grid>
               <Grid
                 sx={{
                   display: "flex",
                   flexDirection: "row",
                   alignItems: "center",
+                  gap: 2,
                 }}
               >
-                <Grid
+                <Button
+                  id="menu-btn-1"
+                  aria-owns={anchorEl ? "simple-menu" : undefined}
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                  onMouseOver={handleClick}
                   sx={{
-                    textDecoration: "none",
-                    width: "150px",
-                    maxWidth: "100%",
+                    color: "white",
+                    cursor: "pointer",
                   }}
                 >
-                  <Typography variant="h6">Movies Mania</Typography>
-                </Grid>
-                <Grid
+                  Movies
+                </Button>
+                <Button
+                  id="menu-btn-2"
+                  aria-owns={anchorEl ? "simple-menu-2" : undefined}
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                  onMouseOver={handleClick}
                   sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
-                    gap: 2,
+                    color: "white",
+                    cursor: "pointer",
                   }}
                 >
-                  <Button
-                    id="menu-btn-1"
-                    aria-owns={anchorEl ? "simple-menu" : undefined}
-                    aria-haspopup="true"
-                    onClick={handleClick}
-                    onMouseOver={handleClick}
-                    sx={{
-                      color: "white",
-                    }}
-                  >
-                    Movies
-                  </Button>
-                  <Button
-                    id="menu-btn-2"
-                    aria-owns={anchorEl ? "simple-menu-2" : undefined}
-                    aria-haspopup="true"
-                    onClick={handleClick}
-                    onMouseOver={handleClick}
-                    sx={{
-                      color: "white",
-                    }}
-                  >
-                    TV Shows
-                  </Button>
+                  TV Shows
+                </Button>
 
-                  <Button
-                    id="menu-btn-3"
-                    aria-owns={anchorEl ? "simple-menu-3" : undefined}
-                    aria-haspopup="true"
-                    onClick={handleClick}
-                    onMouseOver={handleClick}
-                    sx={{
-                      color: "white",
-                    }}
-                  >
-                    People
-                  </Button>
+                <Button
+                  id="menu-btn-3"
+                  aria-owns={anchorEl ? "simple-menu-3" : undefined}
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                  onMouseOver={handleClick}
+                  sx={{
+                    color: "white",
+                    cursor: "pointer",
+                  }}
+                >
+                  People
+                </Button>
 
-                  <MenuBar
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
-                    items={items}
-                  />
+                <MenuBar
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  items={items}
+                />
 
-                  <Button
-                    id="menu-btn-4"
-                    aria-owns={anchorEl ? "simple-menu-4" : undefined}
-                    aria-haspopup="true"
-                    onClick={handleClick}
-                    onMouseOver={handleClick}
-                    sx={{
-                      color: "white",
-                    }}
-                  >
-                    More
-                  </Button>
-                </Grid>
+                <Button
+                  id="menu-btn-4"
+                  aria-owns={anchorEl ? "simple-menu-4" : undefined}
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                  onMouseOver={handleClick}
+                  sx={{
+                    color: "white",
+                    cursor: "pointer",
+                  }}
+                >
+                  More
+                </Button>
               </Grid>
-            ) : (
-              ""
-            )}
-            <Grid sx={{ display: "flex", alignItems: "center" }}>
-              <Button color="inherit">Login</Button>
-              <Button color="inherit">JoinTMDB</Button>
-              <Button onClick={showInput}>
-                {isShow ? <SearchIcon /> : <CloseIcon />}
-              </Button>
             </Grid>
+          ) : (
+            ""
+          )}
+          <Grid sx={{ display: "flex", alignItems: "center" }}>
+            <Button sx={{ color: "#fff" }} color="inherit">
+              Login
+            </Button>
+            <Button sx={{ color: "#fff" }}>JoinTMDB</Button>
+            <Button onClick={showInput}>
+              {isShow ? <SearchIcon /> : <CloseIcon />}
+            </Button>
           </Grid>
-        </Toolbar>
-        {isShow ? "" : <SearchBar />}
-      </AppBar>
-      <Grid component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={openDrawer}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawerData}
-        </Drawer>
+        </Grid>
       </Grid>
+      <Grid>{isShow ? "" : <SearchBar />}</Grid>
     </Grid>
   );
 };

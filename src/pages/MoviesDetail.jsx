@@ -14,7 +14,7 @@ import {
   MoviesReviewsPage,
 } from "../components";
 
-export default function MoviesDetailPage() {
+export const MoviesDetail = () => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetMoviesDetailByNameQuery(id);
   console.log("detail", data);
@@ -146,7 +146,7 @@ export default function MoviesDetailPage() {
               top: 0,
               left: 0,
               backgroundColor: "black",
-              opacity: "0.8",
+              opacity: "0.7",
               zIndex: "-1",
             }}
           ></Grid>
@@ -157,4 +157,4 @@ export default function MoviesDetailPage() {
       <SimilarMoviesPage />
     </Grid>
   );
-}
+};

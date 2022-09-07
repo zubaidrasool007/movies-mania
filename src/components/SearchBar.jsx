@@ -6,7 +6,7 @@ import { useState } from "react";
 export const SearchBar = () => {
   const navigation = useNavigate();
   const [input, setInput] = useState("a");
-  const { data, error, isLoading } = useGetSerchMoviesByNameQuery(input);
+  const { data, isLoading } = useGetSerchMoviesByNameQuery(input);
   if (isLoading)
     return (
       <Grid
@@ -18,8 +18,8 @@ export const SearchBar = () => {
         <CircularProgress />
       </Grid>
     );
-  const searchItem = (data) => {
-    navigation(`detail/${data.id}`);
+  const searchItem = (item) => {
+    navigation(`detail/${item.id}`);
   };
   return (
     <Grid>

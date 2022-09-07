@@ -1,6 +1,5 @@
 import { useGetTopRatedByNameQuery } from "../service/services";
 import {
-  Box,
   Card,
   CardContent,
   CardMedia,

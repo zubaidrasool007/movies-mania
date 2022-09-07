@@ -12,7 +12,7 @@ import { useState } from "react";
 export const Header = () => {
   const navigation = useNavigate();
   const [input, setInput] = useState("a");
-  const { data, error, isLoading } = useGetSerchMoviesByNameQuery(input);
+  const { data, isLoading } = useGetSerchMoviesByNameQuery(input);
   if (isLoading)
     return (
       <Grid
@@ -24,8 +24,8 @@ export const Header = () => {
         <CircularProgress />
       </Grid>
     );
-  const searchItem = (data) => {
-    navigation(`detail/${data.id}`);
+  const searchItem = (item) => {
+    navigation(`detail/${item.id}`);
   };
   return (
     <Grid

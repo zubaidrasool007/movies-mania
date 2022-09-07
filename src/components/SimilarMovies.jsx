@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router";
 import { useGetSimilarMoviesByNameQuery } from "../service/services";
 import { Card, CardContent, CardMedia, Typography, Grid } from "@mui/material";

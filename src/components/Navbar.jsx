@@ -42,9 +42,9 @@ export const Navbar = (props) => {
     setIsShow(!isShow);
   };
   // function is use tho open the drawer
-  const handleDrawerToggle = () => {
-    setOpenDrawer(!openDrawer);
-  };
+  // const handleDrawerToggle = () => {
+  //   setOpenDrawer(!openDrawer);
+  // };
 
   return (
     <Grid>

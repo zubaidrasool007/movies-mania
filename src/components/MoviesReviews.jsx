@@ -1,16 +1,29 @@
-import React from "react";
 import { useGetMoviesReviewsByNameQuery } from "../service/services";
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Grid, Card, CardContent, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { Container } from "@mui/system";
-export default function MoviesReviewsPage() {
+import CircularProgress from "@mui/material/CircularProgress";
+export const MoviesReviewsPage = () => {
   const { id } = useParams();
-  const { data, isLoading } = useGetMoviesReviewsByNameQuery(id);
+  const { data, error, isLoading } = useGetMoviesReviewsByNameQuery(id);
+  console.log("rev", data);
 
-  if (isLoading) return "loading...";
+  if (isLoading)
+    return (
+      <Grid
+        container
+        alignItems={"center"}
+        height={"100vh"}
+        justifyContent={"center"}
+      >
+        <CircularProgress />
+      </Grid>
+    );
+  // if (isLoading) return "ffff";
+  if (error) return "something wrong";
   return (
     <Container>
-      <Box>
+      <Grid>
         <h2>
           Reviews<sup>({data.total_results})</sup>
         </h2>
@@ -26,7 +39,7 @@ export default function MoviesReviewsPage() {
             </CardContent>
           </Card>
         ))}
-      </Box>
+      </Grid>
     </Container>
   );
-}
+};

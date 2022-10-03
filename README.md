@@ -1,6 +1,7 @@
 # Movies Mania
 
-By using React.js and React Material UI created this app. In this app the front page show the top rated movies, when click on the movie then open the detail page with it's rating and reviews. In the detail page also show the similar movies and also show the top billed Cast. The click on any similar movie that show the detail about movie. In this app people can search his favorite movies and  see the related movies rating and reviews
+By using React.js and React Material UI created this app. In this app the front page show the top rated movies, when click on the movie then open the detail page with it's rating and reviews. In the detail page also show the similar movies and also show the top billed Cast. The click on any similar movie that show the detail about movie. In this app people can search his favorite movies and  see the related movies rating and reviews.
+The application is deployed on Netlify: (https://movies-maniya.netlify.app/)
 
 # Stack
 
